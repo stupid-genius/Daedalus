@@ -1557,7 +1557,7 @@ void CMon::BitmapReverse()
   clBitmap = CbBitmap(m_x, m_y) >> 2;
   // Invert 32 pixels at a time.
   for (il = 0; il < clBitmap; il++)
-    *_Pl(il) ^= ~0;
+    *_Pl(il) ^= ~0u;
 }
 
 

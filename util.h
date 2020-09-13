@@ -30,8 +30,8 @@
 // Compile options
 
 #pragma warning(disable:4250) // class inherits member via dominance
-#define WIN
-#define PC
+//#define WIN
+//#define PC
 #define ASSERT
 
 #ifdef PC
