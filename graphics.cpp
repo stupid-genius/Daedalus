@@ -390,7 +390,7 @@ void CMon::Block(int x1, int y1, int x2, int y2, KV o)
   if (x1 == 0 && x2 == m_x-1) {
     il1 = _Il(x1, y1);
     il2 = _Il(x2, y2);
-    l = o ? ~0 : 0;
+    l = o ? ~0u : 0;
     while (il1 <= il2)
       *_Pl(il1++) = l;
     goto LDone;
@@ -403,7 +403,7 @@ void CMon::Block(int x1, int y1, int x2, int y2, KV o)
   l2 = ((1L << (x2 & 31 ^ 7)) - 1 ^ (255L << (x2 & 24)));
   for (y = y1; y <= y2; y++) {
     for (il = il1; il <= il2; il++) {
-      l = ~0;
+      l = ~0u;
       if (il == il1 && (x1 & 31) > 0)
         l &= l1;
       if (il == il2)
@@ -538,7 +538,7 @@ void CMon::LineX(int x1, int x2, int y, KV o)
   // Quickly draw the line, setting up to 32 pixels at a time.
   il1 = _Il(x1, y); il2 = _Il(x2, y);
   for (il = il1; il <= il2; il++) {
-    l = ~0;
+    l = ~0u;
     if (il == il1 && (x1 & 31) > 0)
       l &= ~((1L << (x1-1 & 31 ^ 7)) - 1 ^ (255 << (x1-1 & 24)));
     if (il == il2)
@@ -1538,7 +1538,7 @@ void CMon::BitmapSet(KV o)
   dword l;
   long clBitmap, il;
 
-  l = o ? ~0 : 0;
+  l = o ? ~0u : 0;
   clBitmap = CbBitmap(m_x, m_y) >> 2;
   // Set 32 pixels at a time.
   for (il = 0; il < clBitmap; il++)
